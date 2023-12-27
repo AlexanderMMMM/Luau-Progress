@@ -1,3 +1,5 @@
+--file stored inside an npc/player model with a Humanoid and HumanoidRootPart
+
 local Players = game:GetService("Players")
 
 local npc = script.Parent
@@ -22,7 +24,7 @@ local function GetNearestChar(proximity: number)
 		end
 	end
 	
-	return playerhrp, proximity
+	return playerhrp, proximity --return proximity because it could be useful if you want to know it (I don't but could be useful at somepoint)
 end
 
 
@@ -30,6 +32,6 @@ while task.wait(1) do
 	local target, _ = GetNearestChar(DETECTION_DISTANCE)
 	
 	if target then
-		npcHumanoid:MoveTo(target.Position, target)
+		npcHumanoid:MoveTo(target.Position, target) --second argument added for smoother movement
 	end
 end
